@@ -4,7 +4,9 @@ const cors = require('cors')
 const path = require('path')
 const connectDB = require('./db')
 
+// Charger .env seulement en local
 dotenv.config({ path: path.join(__dirname, '../.env') })
+
 connectDB()
 
 const app = express()
@@ -14,7 +16,6 @@ app.use(express.json())
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
-// Routes
 app.use('/api/auth',      require('./routes/auth'))
 app.use('/api/hotels',    require('./routes/hotels'))
 app.use('/api/users',     require('./routes/users'))
