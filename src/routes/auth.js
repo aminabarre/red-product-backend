@@ -4,6 +4,7 @@ const {
     register,
     login,
     logout,
+    activateAccount,
     forgotPassword,
     resetPassword
 } = require('../controllers/authController')
@@ -18,6 +19,7 @@ const {
 router.post('/register',        validate(registerSchema),       register)
 router.post('/login',           validate(loginSchema),          login)
 router.post('/logout',                                          logout)
+router.get('/activate/:token',                                  activateAccount)
 router.post('/forgot-password', validate(forgotPasswordSchema), forgotPassword)
 router.post('/reset-password',  validate(resetPasswordSchema),  resetPassword)
 
